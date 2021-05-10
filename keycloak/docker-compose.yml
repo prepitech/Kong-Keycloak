@@ -1,0 +1,40 @@
+version: '3.5'
+
+services:
+  keycloak-db:
+    image: postgres:11-alpine
+    volumes: 
+      - keycloak-datastore:/var/lib/postgresql/data
+    networks:
+      - keycloak-net
+    ports:
+      - "25432:5432"
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:11.0.3
+    depends_on:
+      - keycloak-db
+    networks:
+      - keycloak-net
+    ports:
+      - "8080:8080"
+    command: -Dkeycloak.profile.feature.account_api=enabled -b 0.0.0.0
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloak-db
+      DB_PORT: 5432
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+
+volumes:
+  keycloak-datastore:
+
+networks:
+  keycloak-net:
