@@ -15,7 +15,8 @@ services:
       POSTGRES_PASSWORD: keycloak
 
   keycloak:
-    image: quay.io/keycloak/keycloak:11.0.3
+    build:
+      context: .
     depends_on:
       - keycloak-db
     networks:
