@@ -15,8 +15,7 @@ services:
       POSTGRES_PASSWORD: keycloak
 
   keycloak:
-    build:
-      context: .
+    image: bitnami/keycloak:11.0.3-debian-10-r27
     depends_on:
       - keycloak-db
     networks:
@@ -33,6 +32,8 @@ services:
       DB_PASSWORD: keycloak
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
+    volumes:
+      - "./prepi:/opt/bitnami/keycloak/themes/prepi"
 
 volumes:
   keycloak-datastore:
