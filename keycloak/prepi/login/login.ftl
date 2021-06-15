@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
+<@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers??); section>
     <#if section = "header">
-        ${msg("loginAccountTitle")}
+        ${msg("doLogIn")}
         <img class="title-logo-prepi" src="${url.resourcesPath}/img/logo-prepi.png">
     <#elseif section = "form">
     <div id="kc-form">
@@ -10,28 +10,19 @@
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div class="${properties.kcFormGroupClass!}">
                     <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
-
+                    <br>
                     <#if usernameEditDisabled??>
-                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
+                        <input tabindex="1" id="username" style="font-size:1.3em;border:none;width:100%;background-color: #f3f7f8;padding-left: 20px;height: 40px;border-radius: 24px;overflow-x: hidden;" name="username" value="${(login.username!'')}" type="text" disabled />
                     <#else>
-                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off"
-                               aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
-                        />
+                        <input tabindex="1" id="username" style="font-size:1.3em;border:none;width:100%;background-color: #f3f7f8;padding-left: 20px;height: 40px;border-radius: 24px;overflow-x: hidden;" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off" />
 
-                        <#if messagesPerField.existsError('username','password')>
-                            <span id="input-error" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                    ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
-                            </span>
-                        </#if>
                     </#if>
                 </div>
 
                 <div class="${properties.kcFormGroupClass!}">
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
-
-                    <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
-                           aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
-                    />
+                    <br>
+                    <input tabindex="2" id="password" style="font-size:1.3em;border:none;width:100%;background-color: #f3f7f8;padding-left: 20px;height: 40px;border-radius: 24px;overflow-x: hidden;" name="password" type="password" autocomplete="off" />
                 </div>
 
                 <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
@@ -58,7 +49,7 @@
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                       <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                      <input tabindex="4" class="${properties.kcButtonClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                      <input tabindex="4" class="${properties.kcButtonClass!}" style="font-size:1.3em;" name="login" id="kc-login" type="submit" value="${msg("doLogInButtonText")}"/>
                   </div>
             </form>
         </#if>
