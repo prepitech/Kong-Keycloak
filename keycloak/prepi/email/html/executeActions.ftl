@@ -42,7 +42,8 @@
       <div class="email-content">
         <img class="title-logo-prepi" src="https://prepiproductsimages.blob.core.windows.net/prepi-1b834335-c9b2-426e-a94f-54115f2744cf/LOGO_PREPI_%20(1).png">
 
-        ${kcSanitize(msg("executeActionsBodyHtml",link, linkExpiration, realmName, requiredActionsText, linkExpirationFormatter(linkExpiration)))?no_esc}
+        ${msg("passwordResetBodyHtml", link, linkExpiration, realmName, linkExpirationFormatter(linkExpiration))?no_esc}
+
       </div>
     </div>
   </body>
