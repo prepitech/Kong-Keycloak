@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayMessage=!messagesPerField.existsError('password','password-confirm'); section>
+<@layout.registrationLayout displayInfo=true; section>
     <#if section = "header">
         ${msg("updatePasswordTitle")}
         <img class="title-logo-prepi" src="${url.resourcesPath}/img/logo-prepi.png">
@@ -14,16 +14,9 @@
                     <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}"
+                    <input type="password" id="password-new" name="password-new" style="font-size:1.3em;border:none;width:100%;background-color: #f3f7f8;padding-left: 20px;height: 40px;border-radius: 24px;overflow-x: hidden;"
                            autofocus autocomplete="new-password"
-                           aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                     />
-
-                    <#if messagesPerField.existsError('password')>
-                        <span id="input-error-password" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                            ${kcSanitize(messagesPerField.get('password'))?no_esc}
-                        </span>
-                    </#if>
                 </div>
             </div>
 
@@ -33,16 +26,9 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password-confirm" name="password-confirm"
-                           class="${properties.kcInputClass!}"
+                           style="font-size:1.3em;border:none;width:100%;background-color: #f3f7f8;padding-left: 20px;height: 40px;border-radius: 24px;overflow-x: hidden;"
                            autocomplete="new-password"
-                           aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
                     />
-
-                    <#if messagesPerField.existsError('password-confirm')>
-                        <span id="input-error-password-confirm" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                            ${kcSanitize(messagesPerField.get('password-confirm'))?no_esc}
-                        </span>
-                    </#if>
 
                 </div>
             </div>
@@ -60,10 +46,10 @@
 
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <#if isAppInitiatedAction??>
-                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
+                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" style="font-size:1.3em;" type="submit" value="${msg("doSubmit")}" />
                         <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
                     <#else>
-                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
+                        <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" style="font-size:1.3em;" type="submit" value="${msg("doSubmit")}" />
                     </#if>
                 </div>
             </div>
