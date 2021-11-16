@@ -34,6 +34,7 @@ services:
       KEYCLOAK_PASSWORD: admin
     volumes:
       - "./prepi:/opt/bitnami/keycloak/themes/prepi"
+      - "./prepi_report:/opt/bitnami/keycloak/themes/prepi_report"
 
 volumes:
   keycloak-datastore:

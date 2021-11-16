@@ -1,0 +1,286 @@
+@font-face {
+  font-family: "Inter-Regular_Light";
+  font-weight: 1 1000;
+  src: url('https://anima-uploads.s3.amazonaws.com/5c7943ea965b31000c3e68cb/Inter-upright.var.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: AirbnbCerealLight;
+  src: url('../fonts/airbnb/AirbnbCerealLight.ttf')
+}
+
+.ff-airbnb-cereal-light {
+  font-family: AirbnbCerealLight;
+}
+
+@font-face {
+  font-family: AirbnbCerealMedium;
+  src: url('../fonts/airbnb/AirbnbCerealMedium.ttf')
+}
+
+.ff-airbnb-cereal-medium {
+  font-family: AirbnbCerealMedium;
+}
+
+.login-pf-page .login-pf-header h1 {
+  font-size: 2em;
+}
+@media (min-width: 500px) {
+  .login-pf-page .login-pf-header h1 {
+    font-size: 2.2em;
+  }
+}
+@media (min-width: 768px) {
+  .login-pf-page .login-pf-header h1 {
+    font-size: 2.8em;
+  }
+}
+
+.login-pf body {
+  background: url("../img/bg-keycloak.png") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+.prepi-pf-c-form-control {
+  --pf-c-form-control--Height: 40px;
+  background-color: #f3f7f8;
+  padding-left: 20px;
+  height: 40px;
+  border-radius: 24px;
+  overflow-x: hidden;
+}
+
+.form-group input {
+  height: 80px;
+}
+
+.title-logo-prepi {
+  width: 60px;
+  margin-left: 10px;
+
+}
+@media(max-width: 456px) {
+  .title-logo-prepi  {
+    margin-top: 10px;
+  }
+}
+
+.background-image {
+  background: #fff;
+  background-image: url('../img/bg-keycloak.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Add the blur effect */
+  /* filter: blur(4px); */
+  /* -webkit-filter: blur(4px); */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.login-pf-page {
+  min-width: 375px;
+  width: 100%;
+  height: 100%;
+  color: #2C3357;
+  padding: 0 40px;
+}
+
+#login-box {
+  position: relative;
+  height: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+/* start Login text info */
+#login-text-info {
+  position: relative;
+  width: 40%;
+}
+
+@media (min-width: 1450px) {
+  #login-text-info {
+    width: 50%;
+    margin-left: -10vw;
+  }
+}
+#login-text-info .logo {
+  margin-bottom: 40px;
+}
+#login-text-info .logo img {
+  width: 100%;
+  max-width: 345px;
+}
+#login-text-info .title p {
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 44px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fff;
+}
+#login-text-info .text p {
+  margin-top: 30px;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+
+  #login-text-info .logo img {
+    max-width: 330px;
+  }
+  #login-text-info .title p {
+    font-size: 42px;
+  }
+  #login-text-info .text p {
+    font-size: 20px;
+  }
+}
+
+/* end Login text info */
+.card-pf {
+  position: relative;
+  max-width: 341px;
+  padding-bottom: 50px;
+  border-radius: 8px;
+  margin-left: -10%;
+  margin-top: -45px;
+}
+@media (max-width: 1025px) {
+
+  #login-box {
+    display: block;
+    margin-bottom: 100px;
+    min-height: calc(100% + 500px);
+  }
+  #login-text-info {
+    position: relative;
+    width: 90%;
+    margin: 60px auto 60px auto;
+  }
+  .card-pf {
+    position: relative;
+    margin: 0 auto;
+  }
+}
+
+#kc-page-title {
+  font-family: AirbnbCerealMedium;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: .05em;
+  text-align: center;
+  color: #111827;
+}
+
+.input-label {
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+
+.prepi-pf-c-form-control {
+  --pf-c-form-control--Height: 40px;
+  background-color: #fff;
+  padding-left: 20px;
+  height: 40px;
+  border-radius: 24px;
+  overflow-x: hidden;
+}
+
+input[type=text]:not([readonly]) {
+  box-shadow: none;
+  height: 40px;
+  width: 70%;
+  margin: 0 auto;
+  border-bottom: none;
+  border-top: none;
+}
+
+input[type=password]:not([readonly]) {
+  box-shadow: none;
+  border-bottom: none;
+  border-top: none;
+}
+
+input:focus{
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+#username, #password {
+  font-size:1.3em;
+  border: 1px solid #E5E7EB;
+  width:100%;
+  background-color: #fff;
+  padding-left: 20px;
+  height: 42px;
+  border-radius: 12px;
+  overflow-x: hidden;
+}
+
+#username::placeholder,
+#password::placeholder,
+#username[type="text"] {
+  font-family: AirbnbCerealLight;
+  font-size: .9rem;
+  font-weight: 400;
+  text-align: left;
+  color: #111827;
+}
+
+#username:focus,
+#password:focus {
+  border: 1px solid #9CA3AF;
+}
+
+/* end inputs */
+
+#kc-reset-login-credentials {
+  margin-top: 25px;
+}
+#kc-reset-login-credentials span a {
+  font-family: AirbnbCerealMedium;
+  color: #7D00FA;
+}
+
+#kc-form-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#kc-login {
+  font-family: AirbnbCerealMedium;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pf-c-button {
+  width: 100%;
+  height: 40px !important;
+  border-radius: 13px;
+  border: none;
+  background-color: #7D00FA;
+}
