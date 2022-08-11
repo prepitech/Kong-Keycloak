@@ -22,7 +22,10 @@ services:
       - keycloak-net
     ports:
       - "8080:8080"
-    command: -Dkeycloak.profile.feature.account_api=enabled -b 0.0.0.0
+    
+    # https://www.keycloak.org/server/features
+    # https://keycloak.discourse.group/t/enable-account-api-in-docker/14039
+    command: /opt/bitnami/scripts/keycloak/run.sh -Dkeycloak.profile.feature.account_api=enabled -b 0.0.0.0
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: keycloak-db
@@ -32,6 +35,7 @@ services:
       DB_PASSWORD: keycloak
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
+
     volumes:
       - "./prepi:/opt/bitnami/keycloak/themes/prepi"
       - "./prepi_report:/opt/bitnami/keycloak/themes/prepi_report"
