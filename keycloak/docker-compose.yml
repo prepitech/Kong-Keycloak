@@ -15,7 +15,7 @@ services:
       POSTGRES_PASSWORD: keycloak
 
   keycloak:
-    image: bitnami/keycloak:11.0.3-debian-10-r27
+    image: bitnami/keycloak:15.0.1
     depends_on:
       - keycloak-db
     networks:
@@ -24,8 +24,14 @@ services:
       - "8080:8080"
     
     # https://www.keycloak.org/server/features
+    # https://www.keycloak.org/docs/12.0/server_installation/index.html#profiles
     # https://keycloak.discourse.group/t/enable-account-api-in-docker/14039
-    command: /opt/bitnami/scripts/keycloak/run.sh -Dkeycloak.profile.feature.account_api=enabled -b 0.0.0.0
+
+
+    # command: ./opt/bitnami/scripts/keycloak/run.sh --features=preview
+    
+
+    # https://stackoverflow.com/questions/33910615/is-there-an-api-call-for-changing-user-password-on-keycloak
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: keycloak-db
@@ -34,7 +40,7 @@ services:
       DB_USER: keycloak
       DB_PASSWORD: keycloak
       KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_PASSWORD: admina
 
     volumes:
       - "./prepi:/opt/bitnami/keycloak/themes/prepi"
