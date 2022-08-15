@@ -15,7 +15,7 @@ services:
       POSTGRES_PASSWORD: keycloak
 
   keycloak:
-    image: bitnami/keycloak:15.0.1
+    image: bitnami/keycloak:17.0.1-debian-10-r14
     depends_on:
       - keycloak-db
     networks:
